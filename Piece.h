@@ -9,18 +9,17 @@
 
 class piece
 {
-	bool team;
+	bool team; // black == 0 white == 1
 	bool has_moved;
+	//bool color; //Color of the space black == 0, white == 1
 	std::string type;
 
 	piece(); //piece constructor
 	bool is_legal(std::string move); //checks the legality of the move
 	bool make_move(std::string move); //makes the move, and changes the board state
 
-
 	//legal_moves(); A function that detects available moves for a piece
 	//guardian(); returns pieces that are protected by this piece
 	//damsel(); returns pieces that protect this piece. This may be inefficient.
-
-
+	
 }

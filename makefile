@@ -1,4 +1,4 @@
-Phony: all Units valgrind
+Phony: all Units valgrind clean
 
 all: Units
 
@@ -27,3 +27,7 @@ Queen.o: Piece.o
 
 King.o: Piece.o
 	g++ -C King.cc
+
+
+clean:
+	rm *.o
