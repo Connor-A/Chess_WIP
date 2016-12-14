@@ -1,16 +1,16 @@
 #include <string>
-#include "Piece.h"
+#include "pawn.h"
 
 using namespace std;
 
-piece::piece(bool team1)
+pawn::pawn(bool team1)
 {
 	team = team1;
 	has_moved = false;
-	type = "PAWN"
+	type = "PAWN";
 }
 
-bool piece::is_legal(char move[4], piece *board[8][8]);
+bool pawn::is_legal(char move[4], piece *board[][8])
 {
 	int x1, x2, y1, y2;
 	x1 = (int)move[0] - (int)'A';
@@ -32,7 +32,7 @@ bool piece::is_legal(char move[4], piece *board[8][8]);
 				return false;
 		}
 
-		else if((x2 == x1 + 1 || x2 == x1 - 1) && y2 = y1 + 1)
+		else if((x2 == x1 + 1 || x2 == x1 - 1) && y2 == y1 + 1)
 		{
 			if(board[x2][y2] -> type != "SPACE")
 			{
@@ -58,7 +58,7 @@ bool piece::is_legal(char move[4], piece *board[8][8]);
 				return false;
 		}
 
-		else if((x2 == x1 + 1 || x2 == x1 - 1) && y2 = y1 - 1)
+		else if((x2 == x1 + 1 || x2 == x1 - 1) && y2 ==+ y1 - 1)
 		{
 			if(board[x2][y2] -> type != "SPACE")
 			{

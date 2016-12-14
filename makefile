@@ -5,28 +5,28 @@ all: Units
 valgrind: build
 	valgrind --leak-check=yes
 
-Units: Piece.o Pawn.o Rook.o Bishop.o Knight.o Queen.o King.o
+Units: piece.o pawn.o rook.o bishop.o knight.o queen.o king.o
 
-Piece.o:
-	g++ -C Piece.cc
+piece.o:
+	g++ -c piece.cc
 
-Pawn.o: Piece.o
-	g++ -C Pawn.cc
+pawn.o: piece.o
+	g++ -c pawn.cc
 
-Rook.o: Piece.o
-	g++ -C Rook.cc
+rook.o: piece.o
+	g++ -c rook.cc
 
-Bishop.o: Piece.o
-	g++ -C Bishop.cc
+bishop.o: piece.o
+	g++ -c bishop.cc
 
-Knight.o: Piece.o
-	g++ -C Piece.cc
+knight.o: piece.o
+	g++ -c piece.cc
 
-Queen.o: Piece.o
-	g++ -C Queen.cc
+queen.o: piece.o
+	g++ -c queen.cc
 
-King.o: Piece.o
-	g++ -C King.cc
+king.o: piece.o
+	g++ -c king.cc
 
 
 clean:
