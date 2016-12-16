@@ -22,10 +22,10 @@ bool pawn::is_legal(char move[4], piece *board[][8])
 	{
 		if(x1 == x2)
 		{
-			if(y2 == y1 + 1 && board[x2][y2] -> type == "SPACE")
+			if(y2 == y1 + 1 && board[x2][y2] -> get_type() == "SPACE")
 				return true;
 
-			else if(y2 == y1 + 2 && board[x2][y2] -> type == "SPACE" && board[x2][y2 - 1] -> type == "SPACE" && has_moved == false)
+			else if(y2 == y1 + 2 && board[x2][y2] -> get_type() == "SPACE" && board[x2][y2 - 1] -> get_type() == "SPACE" && has_moved == false)
 				return true;
 
 			else 
@@ -34,7 +34,7 @@ bool pawn::is_legal(char move[4], piece *board[][8])
 
 		else if((x2 == x1 + 1 || x2 == x1 - 1) && y2 == y1 + 1)
 		{
-			if(board[x2][y2] -> type != "SPACE")
+			if(board[x2][y2] -> get_type() != "SPACE" && board[x2][y2] -> get_team() != team)
 			{
 				return true;
 			}
@@ -48,19 +48,19 @@ bool pawn::is_legal(char move[4], piece *board[][8])
 	{
 		if(x1 == x2)
 		{
-			if(y2 == y1 - 1 && board[x2][y2] -> type == "SPACE")
+			if(y2 == y1 - 1 && board[x2][y2] -> get_type() == "SPACE")
 				return true;
 
-			else if(y2 == y1 - 2 && board[x2][y2] -> type == "SPACE" && board[x2][y2 + 1] -> type == "SPACE" && has_moved == false)
+			else if(y2 == y1 - 2 && board[x2][y2] -> get_type() == "SPACE" && board[x2][y2 + 1] -> get_type() == "SPACE" && has_moved == false)
 				return true;
 
 			else 
 				return false;
 		}
 
-		else if((x2 == x1 + 1 || x2 == x1 - 1) && y2 ==+ y1 - 1)
+		else if((x2 == x1 + 1 || x2 == x1 - 1) && y2 == y1 - 1)
 		{
-			if(board[x2][y2] -> type != "SPACE")
+			if(board[x2][y2] -> get_type() != "SPACE"  && board[x2][y2] -> get_team() != team)
 			{
 				return true;
 			}

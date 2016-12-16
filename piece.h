@@ -19,6 +19,11 @@ class piece
 		piece(); //piece constructor
 		virtual void is_legal(std::string move){} //checks the legality of the move
 		void make_move(std::string move); //makes the move, and changes the board state
+		
+		std::string get_type(){return type;}
+		bool get_team(){return team;}
+		
+		void set_type(std::string new_type){type = new_type; return;}
 
 		//legal_moves(); A function that detects available moves for a piece
 		//guardian(); returns pieces that are protected by this piece
