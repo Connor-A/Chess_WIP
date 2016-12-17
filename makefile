@@ -1,11 +1,11 @@
-Phony: all Units valgrind clean
+Phony: all units valgrind clean
 
-all: Units
+all: units
 
 valgrind: build
 	valgrind --leak-check=yes
 
-Units: piece.o pawn.o rook.o bishop.o knight.o queen.o king.o
+units: piece.o pawn.o rook.o  knight.o bishop.o queen.o king.o
 
 piece.o:
 	g++ -c piece.cc
@@ -20,7 +20,7 @@ bishop.o: piece.o
 	g++ -c bishop.cc
 
 knight.o: piece.o
-	g++ -c piece.cc
+	g++ -c knight.cc
 
 queen.o: piece.o
 	g++ -c queen.cc

@@ -12,7 +12,6 @@ rook::rook(bool team1)
 
 bool rook::is_legal(char move[4], piece *board[][8])
 {
-	bool loop_check;
 	int x1, x2, y1, y2;
 	x1 = (int)move[0] - (int)'A';
 	x2 = (int)move[2] - (int)'A';
