@@ -8,7 +8,6 @@
 
 class pawn : public piece
 {
-	public:
 		pawn(bool team); //pawn constructor
 		bool is_legal(char move[4], piece *board[][8]); //checks the legality of the move
 

@@ -1,16 +1,16 @@
-#include "rook.h"
+#include "queen.h"
 #include <string>
 
 using namespace std;
 
-rook::rook(bool team1)
+queen::queen(bool team1)
 {
 	team = team1;
 	has_moved = false;
-	type = "ROOK";
+	type = "QUEEN";
 }
 
-bool rook::is_legal(char move[4], piece *board[][8])
+bool bishop::is_legal(char move[4], piece *board[][8])
 {
 	int x1, x2, y1, y2;
 	x1 = (int)move[0] - (int)'A';
@@ -20,7 +20,51 @@ bool rook::is_legal(char move[4], piece *board[][8])
 
 	if(board[x2][y2] -> get_type() == "SPACE" || board[x2][y2] -> get_team() != team)
 	{
-		if(x1 == x2 && y1 != y2)
+		if((x1 - x2) == (y1 - y2) || (x1 - x2) == -(y1 - y2))
+		{
+			if(x2 > x1)
+			{
+				if(y2 > y1)
+				{
+					for(int z = 1; z < x2 - x1; z++)
+						if(board[x1 + z][y1 + z] -> get_type() != "SPACE")
+							return false;
+
+					return true;
+				}
+				
+				else if(y2 < y1)
+				{
+					for(int z = 1; z < x2 - x1; z++)
+						if(board[x1 + z][y1 - z] -> get_type() != "SPACE")
+							return false;
+
+					return true;
+				}
+
+			}
+			else if(x2 < x1)
+			{
+				if(y2 > y1)
+				{
+					for(int z = 1; z < x1 - x2; z++)
+						if(board[x1 - z][y1 + z] -> get_type() != "SPACE")
+							return false;
+
+					return true;
+				}
+				
+				else if(y2 < y1)
+				{
+					for(int z = 1; z < x1 - x2; z++)
+						if(board[x1 - z][y1 - z] -> get_type() != "SPACE")
+							return false;
+
+					return true;
+				}
+			}
+		}
+		else if(x1 == x2 && y1 != y2)
 		{
 			if(y2 > y1)
 			{
@@ -45,7 +89,7 @@ bool rook::is_legal(char move[4], piece *board[][8])
 
 		}
 
-		if(y1 == y2 && x1 != x2)
+		else if(y1 == y2 && x1 != x2)
 		{
 			if(x2 > x1)
 			{
@@ -70,6 +114,5 @@ bool rook::is_legal(char move[4], piece *board[][8])
 
 		}
 	}
-
 	return false;
 }
