@@ -17,7 +17,7 @@ class piece
 
 	public:
 		piece(); //piece constructor
-		virtual void is_legal(std::string move){} //checks the legality of the move
+		virtual bool is_legal(std::string move){return false;} //checks the legality of the move
 		void make_move(std::string move); //makes the move, and changes the board state
 		
 		std::string get_type(){return type;}

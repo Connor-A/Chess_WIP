@@ -10,7 +10,7 @@ queen::queen(bool team1)
 	type = "QUEEN";
 }
 
-bool bishop::is_legal(char move[4], piece *board[][8])
+bool queen::is_legal(char move[4], piece *board[][8])
 {
 	int x1, x2, y1, y2;
 	x1 = (int)move[0] - (int)'A';

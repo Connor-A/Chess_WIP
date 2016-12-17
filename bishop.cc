@@ -1,5 +1,6 @@
 #include "bishop.h"
 #include <string>
+#include <stdlib.h>
 
 using namespace std;
 
@@ -20,7 +21,7 @@ bool bishop::is_legal(char move[4], piece *board[][8])
 
 	if(board[x2][y2] -> get_type() == "SPACE" || board[x2][y2] -> get_team() != team)
 	{
-		if((x1 - x2) == (y1 - y2) || (x1 - x2) == -(y1 - y2))
+		if(abs(x1 - x2) == abs(y1 - y2))
 		{
 			if(x2 > x1)
 			{
@@ -64,5 +65,6 @@ bool bishop::is_legal(char move[4], piece *board[][8])
 				}
 			}
 		}
+	}
 	return false;
 }
